@@ -9,4 +9,4 @@ Follow the directions on a personal device (school computers may bring up issues
 2. Open up the folder (warning it may come as a .zip so just extract all files) in VS Code (or another preferable IDE)
 3. Run the StudentappApplication.java file
 4. Open up http://localhost:8080/ on Google (other broswers may create issue)
-5. If you end up editing these files you have two options: 1) Commit the changes if you understand the process; 2) upload updated code to Google Drive and let us know of the changes you made in #general or #code-help in the Discord server.
+5. If you end up editing these files you have two options: 1) Commit the changes using git on cmd if you understand the process; 2) upload updated code to Google Drive and let us know of the changes you made in #general or #code-help in the Discord server.
