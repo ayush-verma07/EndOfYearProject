@@ -1,0 +1,45 @@
+body {
+    /*background-color: #515050; */
+    background: 
+        linear-gradient(to right, #7f7f7f, #5f5f5f);
+
+}
+
+.login-wrap {
+    background-color: #424242;
+}
+
+.label {
+    color: #caf6f7;
+}
+
+.wrap {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Trebuchet MS';
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    width: 100%; 
+    border-radius: 30px; 
+    overflow: hidden; 
+}
+
+.img {
+    width: 1000px; /* Keep the image width at 50% */
+}
+
+.login-wrap {
+    width: 200%; /* Increase the width of the login side */
+}
