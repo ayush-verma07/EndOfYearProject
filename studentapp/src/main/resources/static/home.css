@@ -1,105 +1,102 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    text-rendering: optimizeSpeed;
+.navbar {
+    background-color: rgb(116, 142, 232);
+    height: 80px;
+    margin: 20px;
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+.navbar-brand {
+    font-weight: 500;
+    color: #009970;
+    font-size: 24px;
+    transition: 0.3s color;
+}
+
+.logout-button {
+    background-color: rgb(187, 37, 0);
+    color: white;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
     text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.logout-button:hover {
+    background-color: rgb(128, 0, 0);
+    color: white;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus {
+    box-shadow: none;
     outline: none;
 }
 
-body {
-    font-family: 'Trebuchet MS';
-    background: 
-        linear-gradient(#d8f5f6, #58c1f6);
-        height: 100%;
-        margin: 0;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        
-}
-
-.super-navbar.scrolled {
-    -webkit-backdrop-filter: blur(20px) saturate(200%);
-    backdrop-filter: blur(20px) saturate(200%);
-    -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 4%);
-    box-shadow: 0 0 20px rgb(0 0 0 / 4%);
-    background: hsla(0,0%,100%,.8);
-}
-
-.super-navbar {
-    padding: 0 var(--padding-right) 0 var(--padding-left);
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-}
-
-.super-navbar.scrolled .super-navbar__content {
-    height: 70px;
-}
-
-.super-navbar__content, .super-navbar__item {
-    display: -moz-box;
-    display: flex;
-    -moz-box-align: center;
-    align-items: center;
-}
-
-.super-navbar__content {
-    height: 100px;
-    -moz-box-pack: justify;
-    justify-content: space-between;
-    -webkit-transition: height .3s ease-in-out;
-    -moz-transition: height .3s ease-in-out;
-    transition: height .3s ease-in-out;
-    -webkit-box-shadow: 0 0 20px transparent;
-    box-shadow: 0 0 20px transparent;
-}
-
-.super-navbar__logo-wrapper {
-    width: 36px;
-    height: 36px;
+.nav-link {
+    color: #dbdbdb;
+    font-weight: 500;
     position: relative;
 }
 
-.notion-link {
-    text-decoration: none;
-    color: inherit;
+.nav-link:hover, .nav-link.active {
+    color: #ff0000
 }
 
-.super-navbar__item-list {
-    width: auto;
-    height: 100%;
-    display: -moz-box;
-    display: flex;
-    -moz-box-align: center;
-    align-items: center;
-    -moz-box-pack: justify;
-    justify-content: space-between;
+@media (min-width: 991px) {
+    .nav-link::before{
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: rgb(255, 213, 0);
+        visibility: hidden;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before, .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
 }
 
-.super-navbar__item {
-    -webkit-transition: var(--transition);
-    -moz-transition: var(--transition);
-    transition: var(--transition);
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -.5px;
-    color: var(--color-text-gray);
-    height: 100%;
+.hero-section {
+    background: url("https://images.nightcafe.studio/jobs/upsaZDJWRTdvmJoAcxh4/upsaZDJWRTdvmJoAcxh4--1--mau7p.jpg?tr=w-1600,c-at_max") no-repeat center;
+    background-size: cover;
     width: 100%;
-    padding: 0 20px;
-    -moz-box-pack: center;
-    justify-content: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    height: 100vh;
 }
 
-.super-navbar__content, .super-navbar__item {
-    display: -moz-box;
-    display: flex;
-    -moz-box-align: center;
-    align-items: center;
+.hero-section::before {
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.hero-section .container {
+    height: 100vh;
+    z-index: 1;
+    position: relative;
+}
+
+.hero-section h1 {
+    font-size: 3.0rem;
+    font-family: Georgia;
+}
+
+.hero-section h2 {
+    font-size: 1.5rem;
+    font-family: 'Trebuchet MS';
 }
