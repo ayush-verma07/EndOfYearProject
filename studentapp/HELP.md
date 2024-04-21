@@ -18,3 +18,8 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 * [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
 
+Compile
+./mvnw package
+
+Run
+/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java @/var/folders/9k/wsmzrnrj09x4cm8r2ctkc7v40000gp/T/cp_9yv0b519l17crmlra646ert2z.argfile fhs.project.studentapp.StudentappApplication 
