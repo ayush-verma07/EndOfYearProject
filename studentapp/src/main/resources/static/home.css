@@ -100,3 +100,7 @@
     font-size: 1.5rem;
     font-family: 'Trebuchet MS';
 }
+
+.btn-btn-primary {
+    padding-top: 10px;
+}

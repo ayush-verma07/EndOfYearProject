@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Settings | ScholastIQ</title>
+        <link rel="stylesheet" href  = "/settings.css">
+
+    </head>
+    <body>
+        <div class = "container">
+            <div>
+                <h1>Settings | ScholastIq </h1>
+            </div>
+            <div>
+                <div>
+                    <label for="1togg">
+                        <span> Dark Mode</span>
+                        <input type="checkbox" id ="check1">
+                        <div></div>
+                        
+                    </label>
+                    <label for="2togg">
+                        <span> Notifications</span>
+                        <input type="checkbox" id ="check2">
+                        <div></div>
+                        
+                    </label>
+                    
+            
+                    <form id="settingsForm" action="/home">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" id="password" placeholder="********" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm Password:</label>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="********" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                
+                </div>
+            </div>
+            <div>
+                
+            
+            
+        </div>
+    </body>
+</html>
+<script>
+    $(document).ready(function() {
+    $('#settingsForm').submit(function(e) {
+        e.preventDefault();
+        alert('Your settings have been saved successfully.');
+    });
+});
+</script>
