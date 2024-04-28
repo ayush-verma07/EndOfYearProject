@@ -302,6 +302,7 @@ body{
 
 .online,
 .offline,
+.idle,
 .me {
     margin-right: 2px;
     font-size: 8px;
@@ -310,6 +311,10 @@ body{
 
 .online {
     color: #86c541
+}
+
+.idle {
+    color: #dce233
 }
 
 .offline {

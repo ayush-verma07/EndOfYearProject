@@ -22,6 +22,11 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a href="/home"><img style="width: 60px; height: 60px;" src="/images/logo.png"></a>
+            &nbsp
+            &nbsp
+            &nbsp
+            &nbsp
+            &nbsp
             <a class="navbar-brand me-auto" href="/home">ScholastIQ</a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
@@ -49,6 +54,11 @@
                 </div>
             </div>
             <a href="/" class="logout-button">Log Out</a>
+            &nbsp
+            &nbsp
+            &nbsp
+            &nbsp
+            &nbsp
             <a href="/settings"><img style="width: 40px; height: 40px; padding-left: 5px;" src="https://cdn-icons-png.freepik.com/256/552/552721.png?semt=ais_hybrid"></a>
             <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -110,17 +120,28 @@
                         <p>Question 5: How long do you want to take a course for? (Select all that apply)</p>
                         <label><input type="checkbox" name="q1" value="2"> 2 semester</label><br>
                         <label><input type="checkbox" name="q1" value="1"> 1 semester</label><br>
-                        <button type="submit">Submit</button>
+                        <button type="submit" class="next-question">Submit</button>
                       </div>
                     </div>
                 </form>
             <div id="quiz-result"></div>
-            <button id="restart-button" style="display: block;">Restart Quiz</button>
+            <button id="restart-button" style="display: block;" class="next-question">Restart Quiz</button>
           </div>             
         </div>
+        &nbsp
+        &nbsp
+        &nbsp
+        &nbsp
+            
+        </div>
+    </section>
+
+    <section style="background-color: #f9f9f9;" class="curriculum">
+        <div class="container">
             <div class="search-school">
                 <p>SELECT YOUR SCHOOL:</p>
-                <select id="school-dropdown">
+                <select id="school-dropdown" onchange="displayCourses()">
+                    <option value="school1">Select one...</option>
                     <option value="school1">Frisco HS</option>
                     <option value="school2">Reedy HS</option>
                     <option value="school3">Wakeland HS</option>
@@ -135,9 +156,19 @@
                     <option value="school6">Panther Creek HS</option>
                 </select>
             </div>
-            
+            &nbsp
+            &nbsp
+            &nbsp
+            &nbsp
+            <div class="pdf-container" id="coursePdfContainer" style="display: none;">
+            <h2 class="text-center">Course Catalog</h2>
+                <iframe src="/files/courses.pdf" width="100%" height="500px" style="border: none;"></iframe>
+            </div>
         </div>
     </section>
+    
+
+
     <footer class="footer">
 
         <section class="bg-light py-4 py-md-5 py-xl-8 border-top border-light">
@@ -223,109 +254,120 @@
         </div>
       
       </footer>
-          <script>
-            document.getElementById('quiz-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+      <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-            const answers = {
-                q1: getSelectedValues('q1'),
-                q2: getSelectedValues('q2'),
-                q3: getSelectedValues('q3'),
-                q4: getSelectedValues('q4'),
-                q5: getSelectedValues('q5')
-            };
+        const answers = {
+            q1: getSelectedValues('q1'),
+            q2: getSelectedValues('q2'),
+            q3: getSelectedValues('q3'),
+            q4: getSelectedValues('q4'),
+            q5: getSelectedValues('q5')
+        };
 
-            const recommendedClasses = getRecommendedClasses(answers);
+        const recommendedClasses = getRecommendedClasses(answers);
 
-            displayRecommendedClasses(recommendedClasses);
-            });
+        displayRecommendedClasses(recommendedClasses);
+        });
 
-            function getSelectedValues(name) {
-            const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
-            return Array.from(checkboxes).map(checkbox => checkbox.value);
-            }
-
-            function getRecommendedClasses(answers) {
-
-            let recommendedClasses;
-            if (answers.q3.includes('math')) {
-                recommendedClasses = ['Math A', 'Math B', 'Math C', 'Math D', 'Math E'];
-            } else if (answers.q3.includes('science')) {
-                recommendedClasses = ['Science A', 'Science B', 'Science C', 'Science D', 'Science E'];
-            }
-            else {
-                recommendedClasses += ['Course A', 'Course B', 'Course C', 'Course D', 'Course E'];
-            }
-
-            return recommendedClasses;
+        function getSelectedValues(name) {
+        const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+        return Array.from(checkboxes).map(checkbox => checkbox.value);
         }
 
+        function getRecommendedClasses(answers) {
 
-            function displayRecommendedClasses(classes) {
-            const resultDiv = document.getElementById('quiz-result');
-            resultDiv.innerHTML = '<h3>Recommended Classes:</h3>';
-            const list = document.createElement('ul');
-            list.style.textAlign = 'left';
-            classes.forEach(className => {
-                const listItem = document.createElement('li');
-                listItem.textContent = className;
-                list.appendChild(listItem);
+        let recommendedClasses;
+        if (answers.q3.includes('math')) {
+            recommendedClasses = ['AP Calculus BC', 'PLTW Intro. to Eng. @CTE', 'Calculus III [VIRTUAL]', 'AP Pre-Calc.', 'Diff.Eq.@Collin'];
+        } else if (answers.q3.includes('science')) {
+            recommendedClasses = ['AP Physics 2', 'Anatomy & Physiology', 'Aquatic Science', 'AP Environmental Science', 'Forensic Science'];
+        }
+        else if (answers.q3.includes('socialstudies')){
+            recommendedClasses = ['APUSH', 'AP Eng. Lang. & Comp.', 'Government/Economics',  'World Literature I & II @ Collin', 'GT Humanities I'];
+        }
+
+        return recommendedClasses;
+    }
+
+
+        function displayRecommendedClasses(classes) {
+        const resultDiv = document.getElementById('quiz-result');
+        resultDiv.innerHTML = '<h3>Recommended Classes:</h3>';
+        const list = document.createElement('ul');
+        list.style.textAlign = 'left';
+        classes.forEach(className => {
+            const listItem = document.createElement('li');
+            listItem.textContent = className;
+            list.appendChild(listItem);
+        });
+        resultDiv.appendChild(list);
+        const restartButton = document.createElement('button');
+
+        restartButton.textContent = 'Restart Quiz';
+        restartButton.addEventListener('click', restartQuiz);
+        resultDiv.appendChild(restartButton);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = document.querySelectorAll(".question");
+            const nextButtons = document.querySelectorAll(".next-question");
+            const restartButton = document.getElementById("restart-button");
+            let currentQuestionIndex = 0;
+
+        function showQuestion(index) {
+            questions.forEach((question, i) => {
+            if (i === index) {
+                question.style.display = "block";
+            } else {
+                question.style.display = "none";
+            }
             });
-            resultDiv.appendChild(list);
-            const restartButton = document.createElement('button');
+        }
 
-            restartButton.textContent = 'Restart Quiz';
-            restartButton.addEventListener('click', restartQuiz);
-            resultDiv.appendChild(restartButton);
-            }
-
-            document.addEventListener("DOMContentLoaded", function() {
-                const questions = document.querySelectorAll(".question");
-                const nextButtons = document.querySelectorAll(".next-question");
-                const restartButton = document.getElementById("restart-button");
-                let currentQuestionIndex = 0;
-
-            function showQuestion(index) {
-                questions.forEach((question, i) => {
-                if (i === index) {
-                    question.style.display = "block";
-                } else {
-                    question.style.display = "none";
-                }
-                });
-            }
-
-            function restartQuiz() {
-                currentQuestionIndex = 0;
-                showQuestion(currentQuestionIndex);
-                const quizResult = document.getElementById("quiz-result");
-                quizResult.textContent = "";
-                restartButton.style.display = "block";
-            }
-
-            function showNextQuestion() {
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) {
-                showQuestion(currentQuestionIndex);
-                } else {
-                showQuizResult();
-                }
-            }
-
-            function showQuizResult() {
-                const quizResult = document.getElementById("quiz-result");
-                quizResult.textContent = "Quiz completed. Here are the recommended classes.";
-                restartButton.style.display = "block";
-            }
-
-            nextButtons.forEach(button => {
-                button.addEventListener("click", showNextQuestion);
-            });
-            restartButton.addEventListener("click", restartQuiz);
+        function restartQuiz() {
+            currentQuestionIndex = 0;
             showQuestion(currentQuestionIndex);
-            });
+            const quizResult = document.getElementById("quiz-result");
+            quizResult.textContent = "";
+            restartButton.style.display = "block";
+        }
+
+        function showNextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+            showQuestion(currentQuestionIndex);
+            } else {
+            showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            const quizResult = document.getElementById("quiz-result");
+            quizResult.textContent = "Quiz completed. Here are the recommended classes.";
+            restartButton.style.display = "block";
+        }
+
+        nextButtons.forEach(button => {
+            button.addEventListener("click", showNextQuestion);
+        });
+        restartButton.addEventListener("click", restartQuiz);
+        showQuestion(currentQuestionIndex);
+        });
+        
+        function displayCourses() {
+        var selectedSchool = document.getElementById('school-dropdown').value;
+        var coursePdfContainer = document.getElementById('coursePdfContainer');
+
+        if (selectedSchool) {
+            coursePdfContainer.style.display = 'block';
+        } else {
+            coursePdfContainer.style.display = 'none';
+        }
+    }
 
 
-          </script>
+      </script>
     </body>
 </html>
