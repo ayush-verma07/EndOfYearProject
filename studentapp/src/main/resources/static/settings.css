@@ -1,4 +1,4 @@
-body,html{
+body, html {
     background-color: #709dcb;
     color: black;
     width: 100%;
@@ -7,7 +7,8 @@ body,html{
     justify-content: center;
     align-items: center;
 }
-.container{
+
+.container {
     box-sizing: border-box;
     background-color: white;
     padding: 20px 70px;
@@ -18,7 +19,7 @@ body,html{
     gap: 10px;
 }
 
-h1,h3,h4,span{
+h1, h3, h4, span {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 1000;
 }
@@ -31,4 +32,48 @@ h1,h3,h4,span{
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #ac0b0b;
+    color: #fff;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    opacity: 0.8;
+}
+
+.additional-section {
+    margin-top: 20px;
+}
+
+.additional-section h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.additional-section a {
+    display: block;
+    margin-bottom: 5px;
+    color: #0366d6; 
+    text-decoration: none;
+}
+
+.additional-section a:hover {
+    text-decoration: underline;
 }

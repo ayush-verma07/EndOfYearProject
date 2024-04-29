@@ -223,44 +223,152 @@
 }
 
 .calendar {
-    width: 400px;
+    width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .month {
-    background: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.header {
+    background-color: #007bff;
     color: #fff;
+    padding: 10px;
     text-align: center;
-    padding: 10px 0;
-  }
-  
-  .weekdays {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.weekdays{
     display: flex;
-  }
-  
-  .weekdays div {
-    flex: 1;
-    text-align: center;
-    padding: 5px;
-    background: #f0f0f0;
-  }
-  
-  .days {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .day {
-    flex: 1;
-    text-align: center;
-    padding: 20px 0;
-    border-right: 1px solid #ccc;
+}
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
     border-bottom: 1px solid #ccc;
-  }
+}
+.other-month{
+}
+.day {
+    padding: 10px;
+    text-align: center;
+}
+.day-name {
+    font-weight: bold;
+}
+.day-num {
+    font-size: 18px;
+}
+
   
-  .other-month {
-    color: #999;
-  }
-  
-  
+/* CSS */
+.checklist-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.add-task {
+    margin-top: 20px;
+}
+
+.add-task input[type="text"] {
+    padding: 5px;
+    width: 200px;
+}
+
+.add-task button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-task button:hover {
+    background-color: #0056b3;
+}
+
+.remove-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+#pleasehelp{
+    margin-top: 7%;
+    text-align: center;
+}
+
+.academic-data {
+    display: none;
+}
+
+.transcript {
+    margin-top: 30px;
+}
+
+.transcript h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.transcript table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transcript th,
+.transcript td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.transcript th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.transcript tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.gpa {
+    margin-top: 20px;
+}
+
+.gpa h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.gpa p {
+    margin: 5px 0;
+}
+
+
